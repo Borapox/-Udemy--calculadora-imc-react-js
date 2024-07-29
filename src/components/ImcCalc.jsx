@@ -56,8 +56,16 @@ const ImcCalc = () => {
             <div
              className='flex gap-3 items-center justify-center mt-5 '
             >
-                <Btn> </Btn>
-                <Btn> </Btn>
+                <Btn
+                    id='calc-btn'
+                    text="Calcular"
+                > 
+                </Btn>
+                <Btn 
+                    id='clear-btn'
+                    text="Limpar"
+                >
+                </Btn>
             </div>
         </form>
 
