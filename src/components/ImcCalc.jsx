@@ -1,6 +1,18 @@
 import React, { useState } from 'react'
 import Btn from './Btn'
+import {tv} from 'tailwind-variants'
 
+const buttonVariant = tv(
+  {
+    base: 'cursor-point rounded-md p-2 w-40 border opacity-90',
+    variants: {
+      colorBtn: {
+        primary: 'border-orange-400 text-orange-500 hover:text-orange-700 uppercase hover:bg-zinc-800 hover:opacity-100 bg-zinc-700',
+        secondary: 'text-red-100 border-red-800 bg-red-500 hover:bg-red-800 hover:text-red-300'
+      }
+    }
+  }
+)
 
 
 
@@ -59,11 +71,13 @@ const ImcCalc = () => {
                 <Btn
                     id='calc-btn'
                     text="Calcular"
+                    className={buttonVariant({colorBtn: 'primary'})}
                 > 
                 </Btn>
                 <Btn 
                     id='clear-btn'
                     text="Limpar"
+                    className={buttonVariant({colorBtn: 'secondary'})}
                 >
                 </Btn>
             </div>

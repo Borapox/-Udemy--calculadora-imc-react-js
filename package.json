@@ -12,7 +12,9 @@
   "dependencies": {
     "@fontsource-variable/dosis": "^5.0.20",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.12",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
