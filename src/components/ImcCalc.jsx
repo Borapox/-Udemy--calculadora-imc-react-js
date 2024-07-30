@@ -120,12 +120,6 @@ const ImcCalc = ({ calcImc }) => {
                 </Btn>
             </div>
         </form>
-
-        <div className='border border-cyan-400 mt-5 flex flex-1'>
-    
-            {/* resultado */}
-    
-        </div>
     </div>
   )
 }

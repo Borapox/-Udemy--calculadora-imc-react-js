@@ -15,7 +15,7 @@ const buttonVariant = tv(
 )
 
 // No IMCInfo recebemos propriedades
-const ImcInfo = ({ data, imc, info, infoclass }) => {
+const ImcInfo = ({ data, imc, info, infoclass, resetCalc }) => {
   return (
     <div className='w-full flex flex-col p-4'>
         
@@ -65,6 +65,7 @@ const ImcInfo = ({ data, imc, info, infoclass }) => {
         <div className='flex justify-center items-center mt-5'>
             <Btn 
               text='Voltar'
+              action={resetCalc}
               className={buttonVariant({colorBtn: 'primary'})}
             > 
             </Btn>
