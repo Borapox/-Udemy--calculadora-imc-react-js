@@ -16,19 +16,38 @@ const buttonVariant = tv(
   }
 )
 
-const ImcCalc = () => {
+const ImcCalc = ({ calcImc }) => {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
   
     const clearForm = (e) => {
-      e.preventDefault();
-      setHeight("");
-      setWeight("");
+        
+        // e.preventDefault(e) - Vai evitar que a tela recarregue a ativar um botão
+        e.preventDefault(e);
+        setHeight("");
+        setWeight("");
+    }
+
+// criação de bloqueio de dígitos não necessários
+    const validDigits = (text) => {
+        return text.replace(/[^0-9, ]/g, "")
+    }
+
+    const handleHeightChance = (e) => {
+        const updateValue = validDigits(e.target.value)
+        
+        setHeight(updateValue);
+    }
+
+    const handleWeightChance = (e) => {
+        const updateValue = validDigits(e.target.value)
+
+        setWeight(updateValue)
     }
 
   return (
     <div className='flex items-center justify-center flex-col'>
-        <h2 className='mb-5 text text-3xl'>
+        <h2 className='text text-[50px] text-orange-400 mb-10'>
             Calculadora de IMC
         </h2>
 
@@ -49,7 +68,7 @@ const ImcCalc = () => {
                             name="height"
                             id='height'
                             placeholder='Exemplo 1,75'
-                            onChange={(e) => setHeight(e.target.value)}
+                            onChange={(e) => handleHeightChance(e)}
                             value={height}
 
                             className='outline-none p-4 w-full font-bold focus:bg-slate-200'
@@ -71,7 +90,7 @@ const ImcCalc = () => {
                             name="weight"
                             id='weight'
                             placeholder='Exemplo 70.5'
-                            onChange={(e) => setWeight(e.target.value)}
+                            onChange={(e) => handleWeightChance(e)}
                             value={weight}
 
                             className='outline-none p-4 w-full font-bold focus:bg-slate-200'
@@ -84,10 +103,12 @@ const ImcCalc = () => {
             <div
              className='flex gap-3 items-center justify-center mt-7 '
             >
+
+                {/* calcImc foi passado via Props do App para o Button! */}
                 {/* Botões Calcular e Limpar */}
                 <Btn
                     text="Calcular"
-                    action={clearForm}
+                    action={calcImc}
                     className={buttonVariant({colorBtn: 'primary'})}
                 > 
                 </Btn>
