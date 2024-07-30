@@ -108,7 +108,7 @@ const ImcCalc = ({ calcImc }) => {
                 {/* Botões Calcular e Limpar */}
                 <Btn
                     text="Calcular"
-                    action={calcImc}
+                    action={(e) => calcImc(e, height, weight)}
                     className={buttonVariant({colorBtn: 'primary'})}
                 > 
                 </Btn>
