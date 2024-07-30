@@ -15,19 +15,28 @@ const buttonVariant = tv(
 )
 
 // No IMCInfo recebemos propriedades
-const ImcInfo = ({ data }) => {
+const ImcInfo = ({ data, imc, info, infoclass }) => {
   return (
     <div className='w-full flex flex-col p-4'>
         
             <p className='text text-[50px] text-orange-400 p-4 flex items-center justify-center'>
               Seu IMC:
+              <span className='text-red-500 ml-5'>
+                {imc}
+              </span>
             </p>
             <p className='text-slate-300 text-3xl flex justify-center'>
-              Situação Atual
+              Situação Atual: 
+              <span className='text-red-500'>
+                {info}
+              </span>
             </p>
 
             <h3 className='text-slate-300 flex justify-center mb-5 mt-2'>
-              Confira às classificações
+              Confira às classificações: 
+              <span className='text-red-500'>
+                {infoclass}
+              </span>
             </h3>
 
             <div>
