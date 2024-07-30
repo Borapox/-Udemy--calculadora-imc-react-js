@@ -4,12 +4,11 @@ import {tv} from 'tailwind-variants'
 
 const buttonVariant = tv(
   {
-    base: 'cursor-point p-2 w-40 border opacity-90',
+    base: 'cursor-point p-2 w-40 border',
     variants: {
       colorBtn: 
       {
-        primary:    'text-white font-bold text-lg uppercase border-orange-800 bg-orange-500 hover:bg-orange-800 hover:text-orange-300',
-        secondary:  'text-white font-bold text-lg uppercase border-red-800 bg-red-500 hover:bg-red-800 hover:text-red-300'
+        primary:  'text-white font-bold text-lg uppercase border-red-800 bg-red-500 hover:bg-red-800 active:bg-red-900'
       }
     }
   }
@@ -18,39 +17,49 @@ const buttonVariant = tv(
 // No IMCInfo recebemos propriedades
 const ImcInfo = ({ data }) => {
   return (
-    <div className='flex flex-col w-full p-4'>
-        <p className='text text-[50px] text-orange-400 mb-10'>
-          Seu IMC:
-        </p>
-        <p className='text-slate-300 text-3xl'>
-          Situação Atual:
-        </p>
-        <h3>Confira às classificações</h3>
+    <div className='w-full flex flex-col p-4'>
+        
+            <p className='text text-[50px] text-orange-400 p-4 flex items-center justify-center'>
+              Seu IMC:
+            </p>
+            <p className='text-slate-300 text-3xl flex justify-center'>
+              Situação Atual
+            </p>
 
-        <div>
+            <h3 className='text-slate-300 flex justify-center mb-5 mt-2'>
+              Confira às classificações
+            </h3>
+
             <div>
-              <h4>IMC</h4>
-              <h4>Classificação</h4>
-              <h4>Obesidade</h4>
-            </div>
-            
-            {data.map((item) => (
-              
-              <div key={item.info}>
+                <div className='flex justify-between text-zinc-200 mb-2 pb-2 px-px border-b-2 text-[20px]  border-zinc-500'>
+                  <h4>IMC</h4>
+                  <h4>Classificação</h4>
+                  <h4>Obesidade</h4>
+                </div>
                 
-                <p>{item.clasification}</p>
-                <p>{item.info}</p>
-                <p>{item.obesity}</p>
+                {data.map((item) => (
+                  
+                  <div 
+                    key={item.info}
+                    className='flex justify-between text-zinc-200 mb-2 p-2 border-b-2 border-dashed border-zinc-500 hover:bg-orange-400 hover:text-zinc-800'>
+                  
+                    
+                      <p>{item.classification}</p>
+                      <p>{item.info}</p>
+                      <p>{item.obesity}</p>
+                  </div>
+                  
 
-              </div>
-
-            ))}
+                ))}
+            </div>
+        
+        <div className='flex justify-center items-center mt-5'>
+            <Btn 
+              text='Voltar'
+              className={buttonVariant({colorBtn: 'primary'})}
+            > 
+            </Btn>
         </div>
-        <Btn 
-          text='Voltar'
-          className={buttonVariant({colorBtn: 'secondary'})}
-        > 
-        </Btn>
     </div>
   )
 }

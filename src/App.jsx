@@ -31,7 +31,7 @@ export default function App() {
   
 
   return (
-    <div className="flex justify-center items-center h-[500px] w-[450px] bg-[#2d4258] border border-orange-400">
+    <div className="flex justify-center items-center h-[600px] w-[470px] bg-[#2d4258] border border-orange-400">
       
       {!imc ? <ImcCalc calcImc={ calcImc } /> : <ImcInfo data={ data } /> }
 
